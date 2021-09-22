@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/Login.css"/>
+</head>
+<body>
+    <div id="login">
+        <h1>注册账号</h1>
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="用户名">
+
+            <input type="password" name="password" placeholder="密码">
+
+            <input type="password" name="check_password" placeholder="请再次输入密码">
+
+            <button class="but" type="submit">注册</button>
+
+            <a href="{% url 'login' %}" style="color:white">已经存在账号？跳转至登陆页</a>
+
+        </form>
+    </div>
+
+
+
+</body>
+</html>

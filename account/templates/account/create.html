@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>修改</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/Login.css"/>
+</head>
+<body>
+    <div id="login">
+        <h1>Login</h1>
+        <form action="{% url 'create' %}" method="post">
+            {% csrf_token %}
+            <input type="text" required="required" placeholder="姓名" name="uesrname">
+            <input type="text" required="required" placeholder="物品名称" name="goodsname">
+            <input type="text" required="required" placeholder="物品数量" name="goodsnum">
+            <input type="text" required="required" placeholder="物品总价" name="goodsmy">
+
+            <button class="but" type="submit">创建</button>
+
+        </form>
+    </div>
+</body>
+</html>>

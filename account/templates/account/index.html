@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+
+</head>
+<body>
+    <div>
+        <form action="{% url 'find' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="search" placeholder="搜索">
+            <button type="submit">物品名称搜索</button>
+        </form>
+    </div>
+    <br>
+    <div>
+        <form action="{% url 'change' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="search" placeholder="请输入修改id">
+            <button type="submit">修改</button>
+        </form>
+    </div>
+    <br>
+    <a class="button" href="{% url 'create' %}">创建</a>
+    <br>
+    <a href="{% url 'logout' %}">tuichu</a>
+
+
+        <form>
+            <table border="1">
+                    <tr>
+                        <td width="180px">序号</td>
+                        <td width="180px">姓名</td>
+                        <td width="360px">物品名称</td>
+                        <td width="180px">物品数量</td>
+                        <td width="180px">物品总价（元）</td>
+                        <td width="360px">创建时间</td>
+                        <td width="360px">操作</td>
+
+                    </tr>
+                </table>
+            {% for data in result %}
+                <table border="1">
+                    <tr>
+                        <td width="180px">{{data.id}}</td>
+                        <td width="180px">{{data.uesrname}}</td>
+                        <td width="360px">{{data.goodsname}}</td>
+                        <td width="180px">{{data.goodsnum}}</td>
+                        <td width="180px">{{data.goodsmy}}</td>
+                        <td width="360px">{{data.createtime}}</td>
+                        <td width="180px"><a href="">修改</a></td>
+                        <td width="180px">删除</td>
+                    </tr>
+                </table>
+            {% endfor %}
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>修改</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/Login.css"/>
+</head>
+<body>
+    <div id="login">
+        <h1>Login</h1>
+        <form action="{% url 'change' %}" method="post">
+            {% csrf_token %}
+            {% for data in result %}
+            <input type="text" required="required" value={{data.id}} name="id">
+            <input type="text" required="required" value={{data.uesrname}} name="uesrname">
+            <input type="text" required="required" value={{data.goodsname}} name="goodsname">
+            <input type="text" required="required" value={{data.goodsnum}} name="goodsnum">
+            <input type="text" required="required" value={{data.goodsmy}} name="goodsmy">
+            {% endfor %}
+
+        </form>
+        <form action="{% url 'changebtn' %}" method="post">
+            {% csrf_token %}
+            <button class="but" type="submit">修改</button>
+        </form>
+    </div>
+</body>
+</html>
